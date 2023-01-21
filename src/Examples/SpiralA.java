@@ -5,7 +5,7 @@ package Examples;
 // Simple example of 2 spirals with depth-testing and color blending
 
 import TGL.Color3;
-import TGL.Context;
+import TGL.Internal.Context;
 import TGL.Vector.Vector3;
 
 public class SpiralA {

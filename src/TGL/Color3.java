@@ -4,6 +4,8 @@ package TGL;
 // 2023
 // Primitive 3-component color class
 
+import TGL.Internal.Projection;
+
 public final class Color3 {
     public int r, g, b;
 
@@ -86,7 +88,7 @@ public final class Color3 {
 
     // Blend colors
     public static Color3 blend(Color3 c1, Color3 c2, float factor) {
-        int br = (int)Projection.linearInterpolate(c1.r, c2.r, factor);
+        int br = (int) Projection.linearInterpolate(c1.r, c2.r, factor);
         int bg = (int)Projection.linearInterpolate(c1.g, c2.g, factor);
         int bb = (int)Projection.linearInterpolate(c1.b, c2.b, factor);
         return new Color3(br, bg, bb);

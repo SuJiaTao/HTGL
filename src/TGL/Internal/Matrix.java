@@ -1,4 +1,4 @@
-package TGL;
+package TGL.Internal;
 
 // Bailey Jia-Tao Brown
 // 2023

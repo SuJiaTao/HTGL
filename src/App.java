@@ -1,6 +1,6 @@
 import TGL.Color3;
-import TGL.Context;
-import TGL.Matrix;
+import TGL.Internal.Context;
+import TGL.Internal.Matrix;
 import TGL.Vector.Vector3;
 
 public class App {

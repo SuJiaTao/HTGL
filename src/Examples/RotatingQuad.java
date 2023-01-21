@@ -2,11 +2,11 @@ package Examples;
 
 // Bailey Jia-Tao Brown
 // 2023
-// Rotating quad mesh
+// Rotating quad meshes
 
 import TGL.Color3;
-import TGL.Context;
-import TGL.Matrix;
+import TGL.Internal.Context;
+import TGL.Internal.Matrix;
 import TGL.Vector.Vector3;
 
 public class RotatingQuad {
@@ -49,15 +49,15 @@ public class RotatingQuad {
                             new Vector3(0, 0, 5),
                             new Vector3(cosOut * 90, sinOut * 270, sinOut * 45),
                             new Vector3(1, 1, 1)), colorBox);
-            context.drawQuad(
+            context.drawLinePolygon(
                     Matrix.transform(vertBox,
                             new Vector3(0, 0, 5),
-                            new Vector3(cosOut * 360, sinOut * 125, cosOut * 120),
+                            new Vector3(sinOut * 90, sinOut * 270, sinOut * 45),
                             new Vector3(1.5f, 1.5f, 1.5f)), colorBox);
-            context.drawQuad(
+            context.drawLinePolygon(
                     Matrix.transform(vertBox,
                             new Vector3(0, 0, 5),
-                            new Vector3(sinOut * 120, cosOut * 270, sinOut * 270),
+                            new Vector3(cosOut * 90, cosOut * 270, sinOut * 45),
                             new Vector3(2.0f, 2.0f, 2.0f)), colorBox);
 
             // pause to stabilize framerate and refresh

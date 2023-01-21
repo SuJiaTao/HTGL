@@ -5,15 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41ace9b7-1fc4-4f29-9ae4-fbe16b8ba8da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TGL/Box.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TGL/World.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TGL/WorldObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTGL/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/RotatingQuad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTGL/Examples/RotatingQuad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/SpiralA.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTGL/Examples/SpiralA.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Color3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTGL/TGL/Color3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Context$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Context$Fragment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Context.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Matrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Projection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/RenderBuffer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Examples/RotatingQuad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/RotatingQuad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TGL/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/SpiralA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/SpiralA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TGL/Color3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Color3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TGL/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Internal/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TGL/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Internal/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TGL/Projection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Internal/Projection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TGL/RenderBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Internal/RenderBuffer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,16 +48,20 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2KeUL0CoRnqFi5fDAKDuxsoo46H" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

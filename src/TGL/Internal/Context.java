@@ -1,10 +1,11 @@
-package TGL;
+package TGL.Internal;
 
 // Bailey Jia-Tao Brown
 // 2023
 // Rendering context, holds all info for a
 // rendering instance
 
+import TGL.Color3;
 import TGL.Vector.Vector3;
 import javax.swing.*;
 import java.awt.*;

@@ -1,9 +1,11 @@
-package TGL;
+package TGL.Internal;
 
 // Bailey Jia-Tao Brown
 // 2023
 // Color/depth bitmap class with
 // drawing capabilites
+
+import TGL.Color3;
 
 public final class RenderBuffer {
     // Consts
