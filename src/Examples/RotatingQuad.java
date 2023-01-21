@@ -54,7 +54,7 @@ public class RotatingQuad {
             }
 
             // draw transformed polygon
-            context.drawQuad(tvertBox, colorBox);
+            context.drawLinePolygon(tvertBox, colorBox);
 
             // pause to stabilize framerate and refresh
             context.pause(1);

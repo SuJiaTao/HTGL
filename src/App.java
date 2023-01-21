@@ -23,24 +23,27 @@ public class App {
         verts[2].set(1.0f, -1.0f, 0.0f);
         cols[2].set(255, 255, 0);
 
+        float counter = 0.0f;
         // inf draw loop
 ;        while (true) {
 
             context.clearWindow();
 
             double phase = (double)System.currentTimeMillis() * 0.0006;
+
+            counter += 1.0f;
+
             float cosOut = (float)Math.cos(phase) * 0.5f;
 
             Vector3 tVerts[] = new Vector3[3];
             for (int i = 0; i < verts.length; i++ ){
                 tVerts[i] = verts[i].copy();
                 tVerts[i] = Matrix.rotate(tVerts[i],
-                        new Vector3(cosOut * 180, 0, 0));
-                tVerts[i] = Matrix.translate(tVerts[i], new Vector3(0.0f, 0.0f, 2.0f));
+                        new Vector3(counter, 0.0f, 0.0f));
+                tVerts[i] = Matrix.translate(tVerts[i], new Vector3(0.0f, 0.0f, 5.0f));
             }
 
             context.drawTriangle(tVerts, cols);
-            context.drawLinePolygon(tVerts, cols);
 
             context.pause(1);
             context.refreshWindow();

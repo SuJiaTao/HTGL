@@ -342,6 +342,11 @@ public final class Context {
         return col;
     }
 
+    // triangle filling func (1 color)
+    public void drawTriangle(Vector3[] verts, Color3 color) {
+        drawTriangle(verts, new Color3[] { color, color, color} );
+    }
+
     // triangle filling func (no quad)
     public void drawTriangle(Vector3[] verts, Color3[] colors) {
         drawTriangle(verts, colors, null, null);
@@ -488,6 +493,11 @@ public final class Context {
                 setPixel(drawX, drawY, color, depth);
             }
         }
+    }
+
+    // drawquad (1 color version)
+    public void drawQuad(Vector3[] verts, Color3 color) {
+        drawQuad(verts, new Color3[] {color, color, color, color});
     }
 
     // draws two triangles using different verts of the quad
