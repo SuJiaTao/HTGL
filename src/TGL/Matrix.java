@@ -6,6 +6,8 @@ package TGL;
 
 import TGL.Vector.Vector3;
 
+import java.util.Arrays;
+
 public final class Matrix {
     public static final int ROWS = 4;
     public static final int COLS = 4;
@@ -127,21 +129,68 @@ public final class Matrix {
     }
 
     // static transformations
+    public static Vector3[] translate(Vector3[] verts, Vector3 translation) {
+        Vector3[] tForm = Arrays.copyOf(verts, verts.length);
+
+        for (int i = 0; i < verts.length; i++) {
+            tForm[i] = translate(verts[i], translation);
+        }
+
+        return tForm;
+    }
     public static Vector3 translate(Vector3 vert, Vector3 translation) {
         Matrix tform = new Matrix(translation,
                 TRANSFORM_TRANSLATE);
         return tform.transformVertex(vert);
     }
 
+    public static Vector3[] rotate(Vector3[] verts, Vector3 rotation) {
+        Vector3[] tForm = Arrays.copyOf(verts, verts.length);
+
+        for (int i = 0; i < verts.length; i++) {
+            tForm[i] = rotate(verts[i], rotation);
+        }
+
+        return tForm;
+    }
     public static Vector3 rotate(Vector3 vert, Vector3 rotation) {
         Matrix tform = new Matrix(rotation,
                 TRANSFORM_ROTATE);
         return tform.transformVertex(vert);
     }
 
+    public static Vector3[] scale(Vector3[] verts, Vector3 scale) {
+        Vector3[] tForm = Arrays.copyOf(verts, verts.length);
+
+        for (int i = 0; i < verts.length; i++) {
+            tForm[i] = scale(verts[i], scale);
+        }
+
+        return tForm;
+    }
     public static Vector3 scale(Vector3 vert, Vector3 scale) {
         Matrix tform = new Matrix(scale,
                 TRANSFORM_SCALE);
         return tform.transformVertex(vert);
+    }
+
+    public static Vector3 transform(Vector3 vert,
+                                    Vector3 translation,
+                                    Vector3 rotation,
+                                    Vector3 scale) {
+        return translate(rotate(scale(vert, scale), rotation), translation);
+    }
+
+    public static Vector3[] transform(Vector3[] verts,
+                                      Vector3 translation,
+                                      Vector3 rotation,
+                                      Vector3 scale) {
+        Vector3 tForm[] = Arrays.copyOf(verts, verts.length);
+        for (int i = 0; i < tForm.length; i++) {
+            tForm[i] = transform(verts[i],
+                    translation, rotation, scale);
+        }
+
+        return tForm;
     }
 }

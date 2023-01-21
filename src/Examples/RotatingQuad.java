@@ -40,21 +40,25 @@ public class RotatingQuad {
 
             // calculate cosine output
             double phase = (double) System.currentTimeMillis() * 0.0006;
-            float cosOut = (float) Math.cos(phase) * 0.5f;
+            float cosOut = (float) Math.cos(phase);
+            float sinOut = (float) Math.sin(phase);
 
             // create transformed vert list
-            Vector3 tvertBox[] = new Vector3[4];
-            for (int i = 0; i < vertBox.length; i++) {
-                tvertBox[i] = vertBox[i].copy();
-                // transform
-                tvertBox[i] =
-                        Matrix.rotate(tvertBox[i], new Vector3(cosOut * 180, cosOut * 45, cosOut * 360));
-                tvertBox[i] =
-                        Matrix.translate(tvertBox[i], new Vector3(0, 0, 3));
-            }
-
-            // draw transformed polygon
-            context.drawLinePolygon(tvertBox, colorBox);
+            context.drawQuad(
+                    Matrix.transform(vertBox,
+                            new Vector3(0, 0, 5),
+                            new Vector3(cosOut * 90, sinOut * 270, sinOut * 45),
+                            new Vector3(1, 1, 1)), colorBox);
+            context.drawQuad(
+                    Matrix.transform(vertBox,
+                            new Vector3(0, 0, 5),
+                            new Vector3(cosOut * 360, sinOut * 125, cosOut * 120),
+                            new Vector3(1.5f, 1.5f, 1.5f)), colorBox);
+            context.drawQuad(
+                    Matrix.transform(vertBox,
+                            new Vector3(0, 0, 5),
+                            new Vector3(sinOut * 120, cosOut * 270, sinOut * 270),
+                            new Vector3(2.0f, 2.0f, 2.0f)), colorBox);
 
             // pause to stabilize framerate and refresh
             context.pause(1);

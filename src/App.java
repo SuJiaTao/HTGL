@@ -35,15 +35,11 @@ public class App {
 
             float cosOut = (float)Math.cos(phase) * 0.5f;
 
-            Vector3 tVerts[] = new Vector3[3];
-            for (int i = 0; i < verts.length; i++ ){
-                tVerts[i] = verts[i].copy();
-                tVerts[i] = Matrix.rotate(tVerts[i],
-                        new Vector3(counter, 0.0f, 0.0f));
-                tVerts[i] = Matrix.translate(tVerts[i], new Vector3(0.0f, 0.0f, 5.0f));
-            }
-
-            context.drawTriangle(tVerts, cols);
+            context.drawTriangle(
+                    Matrix.transform(verts,
+                            new Vector3(0.0f, 0.0f, 5.0f),
+                            new Vector3(0.0f, 0.0f, 45.0f),
+                            new Vector3(1.0f, 1.0f, 1.0f)), cols);
 
             context.pause(1);
             context.refreshWindow();
