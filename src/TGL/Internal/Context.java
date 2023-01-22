@@ -318,6 +318,32 @@ public final class Context {
                 (invDist1 + invDist2 + invDist3);
     }
 
+    private float interpolateFragDepthQuad(int x, int y, Fragment f1, Fragment f2, Fragment f3,
+                                           Fragment fQ) {
+        float invDist1 = 1.0f /
+                Projection.fastDist(f1.x - x,
+                        f1.y - y);
+        float invDist2 = 1.0f /
+                Projection.fastDist(f2.x - x,
+                        f2.y - y);
+        float invDist3 = 1.0f /
+                Projection.fastDist(f3.x - x,
+                        f3.y - y);
+        float invDistQ = 1.0f /
+                Projection.fastDist(fQ.y - x,
+                        fQ.y - y);
+
+        // check for winners
+        if (Float.isInfinite(invDist1)) return f1.depth;
+        if (Float.isInfinite(invDist2)) return f2.depth;
+        if (Float.isInfinite(invDist3)) return f3.depth;
+        if (Float.isInfinite(invDistQ)) return fQ.depth;
+
+        // interpolate
+        return (f1.depth * invDist1 + f2.depth * invDist2 + f3.depth * invDist3 + fQ.depth * invDistQ) /
+                (invDist1 + invDist2 + invDist3 + invDistQ);
+    }
+
     // inverse slope calculator
     private float invslope(Fragment f1, Fragment f2) {
         return (float)(f2.x - f1.x) / (float)(f2.y - f1.y);
@@ -466,16 +492,19 @@ public final class Context {
             for (int xWalk = lx; xWalk <= rx; xWalk++) {
                 int drawX = xWalk;
                 int drawY = bl.y + yWalk;
-                float depth = interpolateFragDepth(drawX, drawY,
-                        realFrags[0],realFrags[1], realFrags[2]);
+                float depth;
                 Color3 color;
                 // interpolate color
                 if (qFrag == null) {
                     color = interpolateFragColor(drawX, drawY,
                             realFrags[0],realFrags[1], realFrags[2]);
+                    depth = interpolateFragDepth(drawX, drawY,
+                            realFrags[0],realFrags[1], realFrags[2]);
                 }
                 else {
                     color = interpolateFragColorQuad(drawX, drawY,
+                            realFrags[0],realFrags[1], realFrags[2], qFrag);
+                    depth = interpolateFragDepthQuad(drawX, drawY,
                             realFrags[0],realFrags[1], realFrags[2], qFrag);
                 }
                 setPixel(drawX, drawY, color, depth);
@@ -516,16 +545,19 @@ public final class Context {
             for (int xWalk = lx; xWalk <= rx; xWalk++) {
                 int drawX = xWalk;
                 int drawY = p.y + yWalk;
-                float depth = interpolateFragDepth(drawX, drawY,
-                        realFrags[0],realFrags[1], realFrags[2]);
+                float depth;
                 Color3 color;
                 // interpolate color
                 if (qFrag == null) {
                     color = interpolateFragColor(drawX, drawY,
                             realFrags[0],realFrags[1], realFrags[2]);
+                    depth = interpolateFragDepth(drawX, drawY,
+                            realFrags[0],realFrags[1], realFrags[2]);
                 }
                 else {
                     color = interpolateFragColorQuad(drawX, drawY,
+                            realFrags[0],realFrags[1], realFrags[2], qFrag);
+                    depth = interpolateFragDepthQuad(drawX, drawY,
                             realFrags[0],realFrags[1], realFrags[2], qFrag);
                 }
                 setPixel(drawX, drawY, color, depth);
