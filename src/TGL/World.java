@@ -25,6 +25,7 @@ public final class World {
     // lists of all lights and objects
     private static ArrayList<WorldObject> worldObjects;
     private static ArrayList<Light> lights;
+    private static float ambientLight = 0.2f;
 
     // internal meshes
     private static Vector3[] quadMesh;
@@ -77,6 +78,16 @@ public final class World {
     // Get context object
     public static Context getContext() {
         return context;
+    }
+
+    // Set ambient light
+    public static void setAmbientLight(float val) {
+        ambientLight = val;
+    }
+
+    // Check if initialized
+    public static boolean isInitialized() {
+        return initialized;
     }
 
     // Add world object
@@ -159,10 +170,12 @@ public final class World {
                 parent.position, parent.rotation, parent.scale);
 
         // transform by camera
-        Vector3 camMove = (Vector3)cameraPos.multiplyCopy(-1.0f);
-        Vector3 camRotate = (Vector3)cameraRot.multiplyCopy(-1.0f);
+        Vector3 camMove = cameraPos.multiplyCopy(-1.0f);
+        Vector3 camRotate = cameraRot.multiplyCopy(-1.0f);
         mesh = transformCube(mesh,
-                camMove, camRotate, new Vector3(1.0f, 1.0f, 1.0f));
+                camMove, new Vector3(0, 0, 0), new Vector3(1.0f, 1.0f, 1.0f));
+        mesh = transformCube(mesh,
+                new Vector3(0, 0, 0), camRotate, new Vector3(1.0f, 1.0f, 1.0f));
 
         // draw all quad faces
         for (int i = 0; i < 6; i++) {
@@ -170,15 +183,16 @@ public final class World {
             Vector3[] qVerts = mesh[i];
 
             // accumulate light factor
-            float lightFactor = 0.0f;
+            float lightFactor = ambientLight;
 
             // loop all lights that exist
             for (Light light : lights) {
 
                 // get actual light position
                 Vector3 lightPosActual =
-                        Matrix.transform(light.position,
-                                camMove, camRotate, new Vector3(1.0f, 1.0f, 1.0f));
+                        Matrix.translate(light.position, camMove);
+                lightPosActual =
+                    Matrix.rotate(lightPosActual, camRotate);
                 // get actual distance (cannot be > radius)
                 float dist = lightPosActual.distance(qVerts[4]);
 
@@ -221,15 +235,27 @@ public final class World {
         translateCamera(new Vector3(x, y, z));
     }
 
+    public static void rotateCamera(Vector3 rotation) {
+        cameraRot.add(rotation);
+    }
+
+    public static void rotateCamera(float x, float y, float z) {
+        rotateCamera(new Vector3(x, y, z));
+    }
+
     public static void moveCameraRelativeToLooking(Vector3 vect) {
-        Vector3 rotation = cameraRot.copy();
-        rotation.multiply(-1.0f);
-        Vector3 moveDir = Matrix.rotate(vect, rotation);
+        Vector3 moveDir = Matrix.rotate(vect,
+                new Vector3(cameraRot.x, cameraRot.y, cameraRot.z));
         cameraPos.add(moveDir);
     }
 
     public static void moveCameraRelativeToLooking(float x, float y, float z) {
         moveCameraRelativeToLooking(new Vector3(x, y, z));
+    }
+
+    // Pause
+    public static void pause(long miliseconds) {
+        context.pause(miliseconds);
     }
 
     // Update world

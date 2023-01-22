@@ -16,7 +16,7 @@ public abstract class Vector {
     public abstract int getComponentCount();
 
     // Creates copy of vector
-    public abstract Vector copy();
+    public abstract <T extends Vector> T copy();
 
     // Check if vectors are compatible (have same component count)
     public static boolean sameComponentCount(Vector v1, Vector v2) {
@@ -64,10 +64,10 @@ public abstract class Vector {
         this.setComponents(comps);
     }
 
-    public Vector multiplyCopy(float f) {
+    public <T extends Vector> T multiplyCopy(float f) {
         Vector v = this.copy();
         v.multiply(f);
-        return v;
+        return (T)v;
     }
 
     // Get Vector magnitude

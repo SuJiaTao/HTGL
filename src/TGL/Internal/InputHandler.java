@@ -65,8 +65,8 @@ public final class InputHandler implements KeyListener, MouseListener {
         Vector2 vector = new Vector2();
         if (isCharDownIgnoreCase('W'))  vector.y += 1;
         if (isCharDownIgnoreCase('A'))  vector.x -= 1;
-        if (isCharDownIgnoreCase('S'))  vector.x += 1;
-        if (isCharDownIgnoreCase('D'))  vector.y -= 1;
+        if (isCharDownIgnoreCase('S'))  vector.y -= 1;
+        if (isCharDownIgnoreCase('D'))  vector.x += 1;
 
         return vector;
     }

@@ -396,9 +396,9 @@ public final class Context {
             throw new RuntimeException("Color array to small.");
 
         // if any past clipping plane, cull
-        //for (Vector3 vert : verts) {
-        //    if (vert.z <= 0.0f) return;
-        //}
+        for (Vector3 vert : verts) {
+            if (vert.z <= 0.5f) return;
+        }
 
         // generate fragments
         // frags are sorted by height from high to low (v1, v2, v3)
