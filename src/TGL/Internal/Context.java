@@ -93,8 +93,8 @@ public final class Context {
     // framebuffer swap function
     public void refreshWindow() {
         // calculate pixel size
-        float fpxlW = (float)Math.ceil((float)windowW / (float)resW);
-        float fpxlH = (float)Math.ceil((float)windowH / (float)resH);
+        float fpxlW = ((float)windowW / (float)resW);
+        float fpxlH = ((float)windowH / (float)resH);
 
         // draw pixels
         for (int walkX = 0; walkX < resW; walkX++){
@@ -109,8 +109,8 @@ public final class Context {
 
                 // draw "pixel"
                 gfxObject.setColor(new Color(col.r, col.g, col.b, 255));
-                gfxObject.fillRect((int)fpxlX, (int)fpxlY,
-                        (int)fpxlW, (int)fpxlH);
+                gfxObject.fillRect((int)Math.floor(fpxlX), (int)Math.floor(fpxlY),
+                        (int)Math.ceil(fpxlW), (int)Math.ceil(fpxlH));
             }
         }
 
