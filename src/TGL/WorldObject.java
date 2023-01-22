@@ -36,7 +36,7 @@ public abstract class WorldObject {
         if (boxes != null)
             this.boxes.addAll(Arrays.asList(boxes));
 
-        World.addWorldObject(this);
+        World.internalAddWorldObject(this);
     }
 
     public WorldObject(Vector3 position, Vector3 rotation, RenderBox[] boxes) {
@@ -52,7 +52,7 @@ public abstract class WorldObject {
         if (boxes != null)
             this.boxes.addAll(Arrays.asList(boxes));
 
-        World.addWorldObject(this);
+        World.internalAddWorldObject(this);
     }
 
     public WorldObject(Vector3 position, RenderBox[] boxes) {
@@ -68,7 +68,7 @@ public abstract class WorldObject {
         if (boxes != null)
             this.boxes.addAll(Arrays.asList(boxes));
 
-        World.addWorldObject(this);
+        World.internalAddWorldObject(this);
     }
 
     // Add render box function
@@ -90,6 +90,37 @@ public abstract class WorldObject {
 
     public ArrayList<RenderBox> getBoxList() {
         return this.boxes;
+    }
+
+    // transformations
+    public void move(Vector3 vector) {
+        position.add(vector);
+    }
+
+    public void move(float x, float y, float z) {
+        position.x += x;
+        position.y += y;
+        position.z += z;
+    }
+
+    public void rotate(Vector3 rotation) {
+        this.rotation.add(rotation);
+    }
+
+    public void rotate(float x, float y, float z) {
+        rotate(new Vector3(x, y, z));
+    }
+
+    public void scale(Vector3 scale) {
+        this.scale.x *= scale.x;
+        this.scale.y *= scale.y;
+        this.scale.z *= scale.z;
+    }
+
+    public void scale(float x, float y, float z) {
+        this.scale.x *= x;
+        this.scale.y *= y;
+        this.scale.z *= z;
     }
 
     // Update func

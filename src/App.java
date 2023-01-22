@@ -6,14 +6,17 @@ public class App {
         World.initialize("TestWorld", 500, 500, 1.0f);
 
         Cube cube = new Cube(
-                new Vector3(0, 2, 5),
-                new Vector3(45, 45, 0),
-                new Vector3(1, 1, 1),
-                new Color3(255, 255, 255)
+                new Vector3(0, 0, 5),
+                new Color3(255, 128, 64)
         );
 
+        Light l = new Light(new Vector3(3, 3, 4), 10);
+
         while (true) {
+            cube.rotate(1f, 1f, 0.0f);
             World.update();
+            World.setCameraRotation(0, 45, 0);
+            World.moveCameraRelativeToLooking(0, 0, -0.2f);
         }
     }
 }

@@ -67,6 +67,20 @@ public final class Color3 {
         b = comps[2];
     }
 
+    public Color3 scale(float factor) {
+        // clamp factor
+        factor = Math.max(0, factor);
+        factor = Math.min(1, factor);
+
+        Color3 rc = copy();
+
+        rc.r = (int)((float)r * factor);
+        rc.g = (int)((float)g * factor);
+        rc.b = (int)((float)b * factor);
+
+        return rc;
+    }
+
     public void set(Color3 color) {
         r = color.r;
         g = color.g;

@@ -64,6 +64,12 @@ public abstract class Vector {
         this.setComponents(comps);
     }
 
+    public Vector multiplyCopy(float f) {
+        Vector v = this.copy();
+        v.multiply(f);
+        return v;
+    }
+
     // Get Vector magnitude
     public float magnitude() {
         // get all components, sum up the squares of each
@@ -99,6 +105,28 @@ public abstract class Vector {
         // subtract and return
         v1.add(vf);
         return v1.magnitude();
+    }
+
+    // Get manhattan distance
+    public float manhattanDistance(Vector3 v2) {
+        // check for faulty cases
+        if (v2 == null)
+            throw new RuntimeException("Vector was null!");
+
+        if (sameComponentCount(this, v2) == false)
+            throw new RuntimeException("Vector component mismatch!");
+
+        if (!v2.isValid())
+            throw new RuntimeException("Vector had NaN/inf values. Check for x/0 operation.");
+
+        float accum = 0.0f;
+        float[] thisComps = getComponentArray();
+        float[] thatComps = v2.getComponentArray();
+        for (int i = 0; i < thisComps.length; i++) {
+            accum += Math.abs(thisComps[i] - thatComps[i]);
+        }
+
+        return accum;
     }
 
     // Vector normalize operation

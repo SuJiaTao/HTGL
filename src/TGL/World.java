@@ -14,18 +14,25 @@ public final class World {
 
     // definitions
     private static final int INITIAL_WORLDOBJECT_CAPACITY = 512;
+    private static final int INITIAL_LIGHT_CAPACITY = 64;
+
     // init flag
     private static boolean initialized = false;
 
     // context
     private static Context context;
 
-    // list of all objects
+    // lists of all lights and objects
     private static ArrayList<WorldObject> worldObjects;
+    private static ArrayList<Light> lights;
 
     // internal meshes
     private static Vector3[] quadMesh;
     private static Vector3[][] cubeMesh;
+
+    // camera transform
+    private static Vector3 cameraPos = new Vector3();
+    private static Vector3 cameraRot = new Vector3();
 
     // Initialize world function
     public static void initialize(String title, int windowWidth, int windowHeight,
@@ -47,18 +54,21 @@ public final class World {
                 (int)(windowWidth * renderScale),
                 (int)(windowHeight * renderScale), new Color3(0, 0, 0));
 
-        // init world object list
+        // init world and light object list
         worldObjects = new ArrayList<>(INITIAL_WORLDOBJECT_CAPACITY);
+        lights = new ArrayList<>(INITIAL_LIGHT_CAPACITY);
 
         // set init flag to true
         initialized = true;
 
         // initialize quadmesh
-        quadMesh = new Vector3[4];
+        // 5th vertex is the average vertex position
+        quadMesh = new Vector3[5];
         quadMesh[0] = new Vector3(-1, -1);
         quadMesh[1] = new Vector3(-1, 1);
         quadMesh[2] = new Vector3(1, 1);
         quadMesh[3] = new Vector3(1, -1);
+        quadMesh[4] = new Vector3(0.5f, 0.5f);
 
         // generate cubemesh
         generateCubeMesh();
@@ -70,7 +80,7 @@ public final class World {
     }
 
     // Add world object
-    public static void addWorldObject(WorldObject obj) {
+    public static void internalAddWorldObject(WorldObject obj) {
         // check for not init
         if (!initialized)
             throw new RuntimeException("World must be initialized before creating world objects!");
@@ -79,6 +89,18 @@ public final class World {
             throw new RuntimeException("Cannot add the same world object twice!");
 
         worldObjects.add(obj);
+    }
+
+    // Add light object
+    public static void internalAddLight(Light light) {
+        // check for not init
+        if (!initialized)
+            throw new RuntimeException("World must be initialized before creating lights!");
+
+        if (lights.contains(light))
+            throw new RuntimeException("Cannot add the same light twice!");
+
+        lights.add(light);
     }
 
     private static void generateCubeMesh() {
@@ -109,7 +131,7 @@ public final class World {
                 new Vector3(1, 1, 1));
         cubeMesh[5] = Matrix.transform(face,
                 new Vector3(0, 0, 0),
-                new Vector3(0, -90, 0),
+                new Vector3(0, 270, 0),
                 new Vector3(1, 1, 1));
     }
 
@@ -136,10 +158,78 @@ public final class World {
         mesh = transformCube(mesh,
                 parent.position, parent.rotation, parent.scale);
 
+        // transform by camera
+        Vector3 camMove = (Vector3)cameraPos.multiplyCopy(-1.0f);
+        Vector3 camRotate = (Vector3)cameraRot.multiplyCopy(-1.0f);
+        mesh = transformCube(mesh,
+                camMove, camRotate, new Vector3(1.0f, 1.0f, 1.0f));
+
         // draw all quad faces
         for (int i = 0; i < 6; i++) {
-            context.drawQuad(mesh[i], box.color);
+            // get quad verts
+            Vector3[] qVerts = mesh[i];
+
+            // accumulate light factor
+            float lightFactor = 0.0f;
+
+            // loop all lights that exist
+            for (Light light : lights) {
+
+                // get actual light position
+                Vector3 lightPosActual =
+                        Matrix.transform(light.position,
+                                camMove, camRotate, new Vector3(1.0f, 1.0f, 1.0f));
+                // get actual distance (cannot be > radius)
+                float dist = lightPosActual.distance(qVerts[4]);
+
+                // clamp distance
+                dist = Math.min(light.radius, dist);
+
+                lightFactor += 1.0f - (dist / light.radius);
+
+                // if lightfactor > 1, done
+                if (lightFactor > 1.0f) break;
+            }
+
+            // darken by lightfactor
+            context.drawQuad(mesh[i], box.color.scale(lightFactor));
         }
+    }
+
+    // Camera functions
+    public static void setCameraPos(Vector3 pos) {
+        cameraPos = pos.copy();
+    }
+
+    public static void setCameraPos(float x, float y, float z) {
+        setCameraPos(new Vector3(x, y, z));
+    }
+
+    public static void setCameraRotation(Vector3 rot) {
+        cameraRot = rot.copy();
+    }
+
+    public static void setCameraRotation(float x, float y, float z) {
+        setCameraRotation(new Vector3(x, y, z));
+    }
+
+    public static void translateCamera(Vector3 vect) {
+        cameraPos.add(vect);
+    }
+
+    public static void translateCamera(float x, float y, float z) {
+        translateCamera(new Vector3(x, y, z));
+    }
+
+    public static void moveCameraRelativeToLooking(Vector3 vect) {
+        Vector3 rotation = cameraRot.copy();
+        rotation.multiply(-1.0f);
+        Vector3 moveDir = Matrix.rotate(vect, rotation);
+        cameraPos.add(moveDir);
+    }
+
+    public static void moveCameraRelativeToLooking(float x, float y, float z) {
+        moveCameraRelativeToLooking(new Vector3(x, y, z));
     }
 
     // Update world
@@ -152,6 +242,7 @@ public final class World {
             }
         }
 
+        context.pause(1); // pause 1 msec to regulate
         context.refreshWindow();
     }
 }

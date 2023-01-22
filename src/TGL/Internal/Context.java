@@ -26,6 +26,9 @@ public final class Context {
     private Graphics gfxObject;
     private Color3 clearCol;
 
+    // input system
+    public InputHandler inputHandler;
+
     // Ctor
     public Context(String title, int windowWidth, int windowHeight,
                    int resolutionWidth, int resolutionHeight,
@@ -55,6 +58,26 @@ public final class Context {
 
         // grab rendering object
         gfxObject = window.getBufferStrategy().getDrawGraphics();
+
+        // init input system
+        inputHandler = new InputHandler();
+        window.addMouseListener(inputHandler);
+        window.addKeyListener(inputHandler);
+    }
+
+    // get window
+    public JFrame getWindow() {
+        return window;
+    }
+
+    // get render resolution
+    public int[] getResolution() {
+        return new int[] {resW, resH};
+    }
+
+    // get window dimensions
+    public int[] getDimensions() {
+        return new int[] {windowW, windowH};
     }
 
     // Clearing related funcs
@@ -275,9 +298,15 @@ public final class Context {
 
     // depth and color interpolating based on distance to 3 point
     private float interpolateFragDepth(int x, int y, Fragment f1, Fragment f2, Fragment f3) {
-        float invDist1 = 1.0f / Projection.fastDist(f1.x - x, f1.y - y);
-        float invDist2 = 1.0f / Projection.fastDist(f2.x - x, f2.y - y);
-        float invDist3 = 1.0f / Projection.fastDist(f3.x - x, f3.y - y);
+        float invDist1 = 1.0f /
+                Projection.fastDist(f1.x - x,
+                        f1.y - y);
+        float invDist2 = 1.0f /
+                Projection.fastDist(f2.x - x,
+                        f2.y - y);
+        float invDist3 = 1.0f /
+                Projection.fastDist(f3.x - x,
+                        f3.y - y);
 
         // check for winners
         if (Float.isInfinite(invDist1)) return f1.depth;
@@ -421,6 +450,10 @@ public final class Context {
         float LinvSlope = invslope(bl, p);
         float RinvSlope = invslope(br, p);
 
+        // if invslopes are inf, don't draw
+        if (Float.isInfinite(LinvSlope) ||
+                Float.isInfinite(RinvSlope)) return;
+
         // walk from bottom to top, calculate points of each side, draw
         int verticalDistance = p.y - bl.y;
         for (int yWalk = 0; yWalk <= verticalDistance; yWalk++) {
@@ -466,6 +499,10 @@ public final class Context {
         // take invslope from p to l, r
         float LinvSlope = invslope(p, tl);
         float RinvSlope = invslope(p, tr);
+
+        // if invslopes are inf, don't draw
+        if (Float.isInfinite(LinvSlope) ||
+        Float.isInfinite(RinvSlope)) return;
 
         // walk from bottom to top, calculate points of each side, draw
         int verticalDistance = tl.y - p.y;
@@ -517,8 +554,8 @@ public final class Context {
         drawTriangle(new Vector3[] { verts[0], verts[1], verts[3]},
                 new Color3[] { colors[0], colors[1], colors[3]},
                 verts[2], colors[2]);
-        drawTriangle(new Vector3[] { verts[1], verts[2], verts[3]},
-                new Color3[] { colors[1], colors[2], colors[3]},
+        drawTriangle(new Vector3[] { verts[3], verts[2], verts[1]},
+                new Color3[] { colors[3], colors[2], colors[1]},
                 verts[0], colors[0]);
     }
 

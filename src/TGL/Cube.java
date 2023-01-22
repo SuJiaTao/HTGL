@@ -17,6 +17,26 @@ public final class Cube extends WorldObject {
                 new Vector3(1, 1, 1), col));
     }
 
+    public Cube(Vector3 position, float size, Color3 color) {
+        super(position, new Vector3(0, 0, 0),
+                new Vector3(size, size ,size), null);
+
+        // add unit cube
+        addRenderBox(new RenderBox(new Vector3(0, 0, 0),
+                new Vector3(0, 0, 0),
+                new Vector3(1, 1, 1), color));
+    }
+
+    public Cube(Vector3 position, Color3 color) {
+        super(position, new Vector3(0, 0, 0),
+                new Vector3(1, 1 ,1), null);
+
+        // add unit cube
+        addRenderBox(new RenderBox(new Vector3(0, 0, 0),
+                new Vector3(0, 0, 0),
+                new Vector3(1, 1, 1), color));
+    }
+
     // Unused update func
 
     @Override
