@@ -263,6 +263,10 @@ public final class World {
         context.clearWindow();
 
         for (WorldObject obj : worldObjects) {
+            // check for no draw
+            if (obj.show == false) continue;
+
+            // draw all boxes
             for (RenderBox box : obj.getBoxList()) {
                 drawRenderBox(obj, box);
             }
