@@ -9,7 +9,7 @@ import TGL.Internal.Context;
 import TGL.Internal.Matrix;
 import TGL.Vector.Vector3;
 
-public class RotatingQuad {
+public final class RotatingQuad {
     public static void main(String[] args) {
         // create rendering context
         Context context = new Context("Test", 500, 500,

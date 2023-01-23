@@ -8,7 +8,7 @@ import TGL.Color3;
 import TGL.Internal.Context;
 import TGL.Vector.Vector3;
 
-public class SpiralA {
+public final class SpiralA {
     public static void main(String[] args) {
         // create new context
         Context c = new Context("--- Spiral A ---", 750, 500,
