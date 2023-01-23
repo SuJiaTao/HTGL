@@ -169,6 +169,14 @@ public final class World {
         mesh = transformCube(mesh,
                 parent.position, parent.rotation, parent.scale);
 
+        // traverse parent heigharchy and transform
+        WorldObject wParent = parent.parent;
+        while (wParent != null) {
+            mesh = transformCube(mesh,
+                    wParent.position, wParent.rotation, wParent.scale);
+            wParent = wParent.parent;
+        }
+
         // transform by camera
         Vector3 camMove = cameraPos.multiplyCopy(-1.0f);
         Vector3 camRotate = cameraRot.multiplyCopy(-1.0f);
@@ -188,11 +196,24 @@ public final class World {
             // loop all lights that exist
             for (Light light : lights) {
 
+                // transform by parent heigharchy
+                WorldObject lParent = light.parent;
+                Vector3 lightPosActual = light.position;
+
+                while (lParent != null) {
+                    lightPosActual =
+                            Matrix.rotate(lightPosActual, lParent.rotation);
+                    lightPosActual =
+                            Matrix.translate(lightPosActual, lParent.position);
+                    lParent = lParent.parent;
+                }
+
                 // get actual light position
-                Vector3 lightPosActual =
-                        Matrix.translate(light.position, camMove);
                 lightPosActual =
-                    Matrix.rotate(lightPosActual, camRotate);
+                        Matrix.translate(lightPosActual, camMove);
+                lightPosActual =
+                        Matrix.rotate(lightPosActual, camRotate);
+
                 // get actual distance (cannot be > radius)
                 float dist = lightPosActual.distance(qVerts[4]);
 
@@ -245,7 +266,9 @@ public final class World {
 
     public static void moveCameraRelativeToLooking(Vector3 vect) {
         Vector3 moveDir = Matrix.rotate(vect,
-                new Vector3(cameraRot.x, cameraRot.y, cameraRot.z));
+                new Vector3(cameraRot.x, 0, 0));
+        moveDir = Matrix.rotate(moveDir,
+                new Vector3(0, cameraRot.y, 0));
         cameraPos.add(moveDir);
     }
 

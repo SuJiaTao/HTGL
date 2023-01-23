@@ -9,6 +9,7 @@ import TGL.*;
 import TGL.Vector.*;
 
 public final class Light {
+    public WorldObject parent;
     public float radius;
     public Vector3 position;
 

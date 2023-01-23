@@ -552,7 +552,7 @@ public final class Context {
 
                 // if not in view, skip
                 if (frameBuffer.outOfView(drawX, drawY)) continue;
-                
+
                 float depth;
                 Color3 color;
                 // interpolate color

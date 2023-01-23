@@ -12,6 +12,9 @@ import TGL.Vector.*;
 
 public abstract class WorldObject {
 
+    // parent object (inherits transforms)
+    public WorldObject parent;
+
     // worldspace transformations
     public Vector3 position;
     public Vector3 rotation;
