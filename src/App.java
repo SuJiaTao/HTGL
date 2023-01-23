@@ -12,12 +12,12 @@ public class App {
                 new Color3(255, 128, 64)
         );
 
-        cube.scale.set(1.0f, 1.5f, 2.0f);
+        cube.scale.set(1.0f, 1.0f, 2.0f);
 
-        Light l = new Light(new Vector3(3, 3, 6), 7);
+        Light l = new Light(new Vector3(3, 3, 6), 6);
 
         while (true) {
-            cube.rotate(1f, 1f, 0.0f);
+            cube.rotate(0.0f, 0.3f, 0.0f);
 
             World.pause(5);
             World.update();

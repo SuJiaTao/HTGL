@@ -10,7 +10,7 @@ import TGL.Vector.*;
 
 public final class Light {
     public float radius;
-    Vector3 position;
+    public Vector3 position;
 
     public Light(Vector3 position, float radius) {
         this.radius = radius;
