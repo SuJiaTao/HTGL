@@ -492,6 +492,10 @@ public final class Context {
             for (int xWalk = lx; xWalk <= rx; xWalk++) {
                 int drawX = xWalk;
                 int drawY = bl.y + yWalk;
+
+                // if not in view, skip
+                if (frameBuffer.outOfView(drawX, drawY)) continue;
+
                 float depth;
                 Color3 color;
                 // interpolate color
@@ -545,6 +549,10 @@ public final class Context {
             for (int xWalk = lx; xWalk <= rx; xWalk++) {
                 int drawX = xWalk;
                 int drawY = p.y + yWalk;
+
+                // if not in view, skip
+                if (frameBuffer.outOfView(drawX, drawY)) continue;
+                
                 float depth;
                 Color3 color;
                 // interpolate color

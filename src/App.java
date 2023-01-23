@@ -23,9 +23,21 @@ public class App {
                 3, 0.75f
         );
 
-        Light l = new Light(new Vector3(3, 3, 6), 8);
+        Light light = new Light(new Vector3(0, 3, 0), 8);
 
         while (true) {
+
+            // generate function phase based on time
+            double phase = (double)System.currentTimeMillis() * 0.001;
+
+            // get sine and cosine output
+            float sineOutput = (float)Math.sin(phase);
+            float cosineOutput = (float)Math.cos(phase);
+
+            // move light around
+            light.position.x = cosineOutput * 5;
+            light.position.z = 3 + sineOutput * 5;
+
             World.pause(5);
             World.update();
         }

@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41ace9b7-1fc4-4f29-9ae4-fbe16b8ba8da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Prefabs/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Prefabs/Human.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Prefabs/Tree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/HTGL/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HTGL/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TGL/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TGL/Internal/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Internal/Context.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
