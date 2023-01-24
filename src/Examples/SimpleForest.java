@@ -1,0 +1,45 @@
+package Examples;
+
+// Bailey Jia-Tao Brown
+// 2023
+// Simple forest scene
+
+import TGL.*;
+import TGL.Prefabs.*;
+import TGL.Vector.*;
+import java.util.Random;
+
+public final class SimpleForest {
+    public static void main(String[] args) {
+        // init world
+        World.initialize("Forest", 750, 500, 0.3f);
+
+        // generate all trees
+        Random rand = new Random();
+        for (int i = 0; i < 20; i++) {
+            float randX = rand.nextFloat(-25, 25);
+            float randZ = rand.nextFloat(-25, 25);
+            float treeHeight = rand.nextFloat(3, 5);
+            new Tree(new Vector3(randX, 0, randZ), treeHeight, 1.0f);
+        }
+
+        // create sun
+        new Light(new Vector3(0, 10, 0), 40);
+
+        // move camera up
+        World.setCameraPos(new Vector3(0, 3, 0));
+
+        // render loop
+        while (true) {
+            // get user input
+            Vector2 lookCamera = Input.getArrowKeyDirection().multiplyCopy(3.25f);
+            Vector2 moveCamera = Input.getWASDDirection().multiplyCopy(0.35f);
+
+            // move camera based on input
+            World.rotateCamera(lookCamera.y, -lookCamera.x, 0.0f);
+            World.moveCameraRelativeToLooking(moveCamera.x, 0, moveCamera.y);
+
+            World.update();
+        }
+    }
+}

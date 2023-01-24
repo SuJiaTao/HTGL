@@ -1,6 +1,6 @@
 import TGL.*;
 import TGL.Vector.*;
-import Prefabs.*;
+import TGL.Prefabs.*;
 
 public class App {
     public static void main(String[] args) {

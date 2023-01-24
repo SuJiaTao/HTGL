@@ -4,12 +4,9 @@ package Examples;
 // 2023
 // Simple scene showcasing prefabs with moveable camera
 
-import Prefabs.Car;
-import Prefabs.Human;
-import Prefabs.Tree;
 import TGL.*;
-import TGL.Vector.Vector2;
-import TGL.Vector.Vector3;
+import TGL.Vector.*;
+import TGL.Prefabs.*;
 
 public final class SimpleScene {
     public static void main(String[] args) {

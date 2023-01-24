@@ -1,4 +1,4 @@
-package Prefabs;
+package TGL.Prefabs;
 
 // Bailey Jia-Tao Brown
 // 2023

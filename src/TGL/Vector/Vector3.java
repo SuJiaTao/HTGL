@@ -29,6 +29,22 @@ public final class Vector3 extends Vector {
         this.x = other.x; this.y = other.y; this.z = other.z;
     }
 
+    // Cross product function
+    public static Vector3 cross(Vector3 lhs, Vector3 rhs) {
+
+        // terrible stolen math
+        return new Vector3(
+                lhs.y * rhs.z - lhs.z * rhs.y,
+                lhs.z * rhs.x - lhs.x * rhs.z,
+                lhs.x * rhs.y - lhs.y * rhs.x
+        );
+    }
+
+    // Dot product function
+    public float dot(Vector3 other) {
+        return this.x * other.x + this.y * other.y + this.z * other.z;
+    }
+
     // Vector class implementations
     public float[] getComponentArray() {
         return new float[] {x, y, z};

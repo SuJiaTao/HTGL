@@ -48,6 +48,12 @@ public abstract class Vector {
         this.setComponents(v1Comps);
     }
 
+    public <T extends Vector> T addCopy(Vector other) {
+        Vector3 copy = copy();
+        copy.add(other);
+        return (T)copy;
+    }
+
     // Vector multiply operation
     public void multiply(float f) {
         // check for bad float values

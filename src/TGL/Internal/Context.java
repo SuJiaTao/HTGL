@@ -426,6 +426,16 @@ public final class Context {
             if (vert.z <= 0.5f) return;
         }
 
+        // get normal vector
+        Vector3 normal = Vector3.cross(
+                verts[1].addCopy(verts[0].multiplyCopy(-1.0f)),
+                verts[1].addCopy(verts[2].multiplyCopy(-1.0f))
+        );
+        normal.normalize();
+
+        // cull if facing away
+        if (normal.dot(new Vector3(0, 0, -1)) <= 0) return;
+
         // generate fragments
         // frags are sorted by height from high to low (v1, v2, v3)
         Fragment frags[] = generateFragments(verts, colors);
@@ -594,8 +604,8 @@ public final class Context {
         drawTriangle(new Vector3[] { verts[0], verts[1], verts[3]},
                 new Color3[] { colors[0], colors[1], colors[3]},
                 verts[2], colors[2]);
-        drawTriangle(new Vector3[] { verts[3], verts[2], verts[1]},
-                new Color3[] { colors[3], colors[2], colors[1]},
+        drawTriangle(new Vector3[] { verts[1], verts[2], verts[3]},
+                new Color3[] { colors[1], colors[2], colors[3]},
                 verts[0], colors[0]);
     }
 
