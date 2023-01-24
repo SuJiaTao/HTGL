@@ -25,7 +25,7 @@ public final class World {
     // lists of all lights and objects
     private static ArrayList<WorldObject> worldObjects;
     private static ArrayList<Light> lights;
-    private static float ambientLight = 0.2f;
+    private static float ambientLight = 0.25f;
 
     // internal meshes
     private static Vector3[] quadMesh;
@@ -191,7 +191,7 @@ public final class World {
             Vector3[] qVerts = mesh[i];
 
             // accumulate light factor
-            float lightFactor = ambientLight;
+            float lightFactor = 0.0f;
 
             // loop all lights that exist
             for (Light light : lights) {
@@ -217,17 +217,29 @@ public final class World {
                 // get actual distance (cannot be > radius)
                 float dist = lightPosActual.distance(qVerts[4]);
 
-                // clamp distance
+                // clamp distance and generate light factor
+                // pre-normal mult
                 dist = Math.min(light.radius, dist);
+                // do generate face normal
+                Vector3 normal = Vector3.cross(
+                        qVerts[1].addCopy(qVerts[0].multiplyCopy(-1.0f)),
+                        qVerts[1].addCopy(qVerts[2].multiplyCopy(-1.0f))
+                );
+                normal.normalize();
 
-                lightFactor += 1.0f - (dist / light.radius);
+                // generate vector pointing towards face
+                Vector3 lightDir = lightPosActual.addCopy(qVerts[4].multiplyCopy(-1.0f));
+                lightDir.normalize();
+
+                // multiply by dot product
+                lightFactor += (1.0f - (dist / light.radius)) * Math.max(0, lightDir.dot(normal));
 
                 // if lightfactor > 1, done
                 if (lightFactor > 1.0f) break;
             }
 
             // darken by lightfactor
-            context.drawQuad(mesh[i], box.color.scale(lightFactor));
+            context.drawQuad(mesh[i], box.color.scale(ambientLight + lightFactor));
         }
     }
 

@@ -24,7 +24,7 @@ public final class SimpleForest {
         }
 
         // create sun
-        new Light(new Vector3(0, 10, 0), 40);
+        new Light(new Vector3(0, 100, 0), 500);
 
         // move camera up
         World.setCameraPos(new Vector3(0, 3, 0));
