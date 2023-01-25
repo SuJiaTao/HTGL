@@ -5,8 +5,8 @@ package TGL.Internal;
 // Rendering context, holds all info for a
 // rendering instance
 
-import TGL.Color3;
-import TGL.Vector.Vector3;
+import TGL.*;
+import TGL.Vector.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
@@ -284,12 +284,29 @@ public final class Context {
     }
 
     private Fragment[] generateFragments(Vector3[] verts, Color3[] colors) {
+
+        // project all into projection space
+        Vector2 projVectArray[] = Projection.projectVertexArray(verts);
+
+        // if all are out of view
+        int outCounter = 0;
+        float aspect = (float)windowW / (float)windowH;
+        for (Vector2 projVert : projVectArray) {
+            if (projVert.y < -1f || projVert.y > 1f ||
+                projVert.x < -aspect || projVert.x > aspect) outCounter++;
+        }
+
+        if (outCounter >= 3) return null;
+
+        // generate fragment list
         Fragment frags[] = new Fragment[3];
-        for (int i = 0; i < 3; i++ ){
-            frags[i] = new Fragment(
-                    Projection.projectVertexToScreenSpace(verts[i], resW, resH),
+        for (int i = 0; i < 3; i++) {
+            frags[i] = new Fragment(Projection.projToScreenSpace(projVectArray[i], resW, resH),
                     verts[i].z, colors[i]);
         }
+
+        // check for out of view
+        float apsect = (float)windowW / (float)windowH;
 
         // sort by height
         sortFragmentsByY(frags);
@@ -434,11 +451,14 @@ public final class Context {
         normal.normalize();
 
         // cull if facing away
-        if (normal.dot(new Vector3(0, 0, -1)) <= 0) return;
+        if (normal.dot(new Vector3(0, 0, -1)) < 0) return;
 
         // generate fragments
         // frags are sorted by height from high to low (v1, v2, v3)
         Fragment frags[] = generateFragments(verts, colors);
+
+        // if is null, cull
+        if (frags == null) return;
 
         // take invslope from frag 3 to 1
         // multiply by vertical distance from frag 3 to 2

@@ -12,7 +12,7 @@ import java.util.Random;
 public final class SimpleForest {
     public static void main(String[] args) {
         // init world
-        World.initialize("Forest", 750, 500, 0.3f);
+        World.initialize("Forest", 750, 500, 0.4f);
 
         // generate all trees
         Random rand = new Random();

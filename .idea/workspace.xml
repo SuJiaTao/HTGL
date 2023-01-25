@@ -6,8 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="41ace9b7-1fc4-4f29-9ae4-fbe16b8ba8da" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/RotatingCube.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/RotatingQuad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/SimpleForest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/SimpleScene.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/SpiralA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Color3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Cube.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Input.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context$Fragment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/InputHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Matrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Projection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/RenderBuffer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Light.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Car.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Human.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/RenderBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/World.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/WorldObject.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Examples/SimpleForest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/SimpleForest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TGL/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TGL/Internal/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Internal/Context.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +53,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2KeUL0CoRnqFi5fDAKDuxsoo46H" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -39,7 +68,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bailey Jia-Tao Brown/Downloads/Petor's Game/game&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
