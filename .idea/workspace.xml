@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41ace9b7-1fc4-4f29-9ae4-fbe16b8ba8da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Examples/TerrainTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TGL/Rand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/SimpleScene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Color3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Cube.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Input.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context$Fragment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/InputHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Matrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Projection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/RenderBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Light.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Car.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Human.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Tree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/RenderBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/World.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/WorldObject.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Examples/SimpleForest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/SimpleForest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/SimpleScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/SimpleScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TGL/Prefabs/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TGL/Prefabs/Tree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

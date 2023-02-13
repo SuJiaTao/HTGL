@@ -12,14 +12,13 @@ import java.util.Random;
 public final class SimpleForest {
     public static void main(String[] args) {
         // init world
-        World.initialize("Forest", 750, 500, 0.4f);
+        World.initialize("Forest", 500, 500, 0.2f);
 
         // generate all trees
-        Random rand = new Random();
         for (int i = 0; i < 20; i++) {
-            float randX = rand.nextFloat();
-            float randZ = rand.nextFloat();
-            float treeHeight = rand.nextFloat();
+            float randX = Rand.nextFloat(-100, 100);
+            float randZ = Rand.nextFloat(-100, 100);
+            float treeHeight = Rand.nextFloat(5.0f, 7.5f);
             new Tree(new Vector3(randX, 0, randZ), treeHeight, 1.0f);
         }
 
