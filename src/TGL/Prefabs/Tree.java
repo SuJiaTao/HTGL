@@ -13,39 +13,36 @@ public class Tree extends WorldObject{
     public Tree(Vector3 position, float height, float size) {
         super(position, new Vector3(), new Vector3(size, size, size), null);
 
-        // create random object
-        Random randObj = new Random();
-
         // create tree trunk
         addRenderBox(new RenderBox(
                 new Vector3(0, height - 0.15f, 0),
-                new Vector3(0, randObj.nextFloat() * 360, 0),
+                new Vector3(0, Rand.nextFloat() * 360, 0),
                 new Vector3(0.25f, height, 0.25f),
                 new Color3(155, 130, 100) // brown
         ));
 
         // create leaves
-        int leafCount = randObj.nextInt(15, 20);
+        int leafCount = Rand.nextInt(15, 20);
 
         for (int i = 0; i < leafCount; i++) {
             float halfHeight = height * 0.5f;
             // generate random position
-            float leafX = randObj.nextFloat(-halfHeight, halfHeight);
-            float leafY = randObj.nextFloat(height);
-            float leafZ = randObj.nextFloat(-halfHeight, halfHeight);
+            float leafX = Rand.nextFloat(-halfHeight, halfHeight);
+            float leafY = Rand.nextFloat(height);
+            float leafZ = Rand.nextFloat(-halfHeight, halfHeight);
 
             // generate random rotation
-            float leafRotX = randObj.nextFloat() * 360;
-            float leafRotY = randObj.nextFloat() * 360;
-            float leafRotZ = randObj.nextFloat() * 360;
+            float leafRotX = Rand.nextFloat() * 360;
+            float leafRotY = Rand.nextFloat() * 360;
+            float leafRotZ = Rand.nextFloat() * 360;
 
             // generate random scales
-            float leafScaleX = randObj.nextFloat(height * 0.15f, height * 0.35f);
-            float leafScaleY = randObj.nextFloat(height * 0.15f, height * 0.35f);
-            float leafScaleZ = randObj.nextFloat(height * 0.15f, height * 0.35f);
+            float leafScaleX = Rand.nextFloat(height * 0.15f, height * 0.35f);
+            float leafScaleY = Rand.nextFloat(height * 0.15f, height * 0.35f);
+            float leafScaleZ = Rand.nextFloat(height * 0.15f, height * 0.35f);
 
             // generate random leaf brightness
-            float leafBrightness = randObj.nextFloat(0.65f, 1.0f);
+            float leafBrightness = Rand.nextFloat(0.65f, 1.0f);
 
             // create leaf
             addRenderBox(new RenderBox(

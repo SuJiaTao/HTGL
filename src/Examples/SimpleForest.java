@@ -17,9 +17,9 @@ public final class SimpleForest {
         // generate all trees
         Random rand = new Random();
         for (int i = 0; i < 20; i++) {
-            float randX = rand.nextFloat(-25, 25);
-            float randZ = rand.nextFloat(-25, 25);
-            float treeHeight = rand.nextFloat(3, 5);
+            float randX = rand.nextFloat();
+            float randZ = rand.nextFloat();
+            float treeHeight = rand.nextFloat();
             new Tree(new Vector3(randX, 0, randZ), treeHeight, 1.0f);
         }
 

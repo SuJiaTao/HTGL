@@ -45,7 +45,8 @@ public final class SimpleScene {
         tree.parent = emptyParent;
 
         // create light source
-        Light light = new Light(new Vector3(3, 3, 3), 8);
+        Light light = new Light(new Vector3(-3, 7, 0), 20);
+        Cube lCube = new Cube(new Vector3(-3, 7, 0), new Color3(255, 255, 64));
         light.parent = emptyParent;
 
         while (true) {
