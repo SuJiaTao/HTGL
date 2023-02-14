@@ -9,6 +9,7 @@ import TGL.Vector.*;
 import TGL.Prefabs.*;
 
 public final class SimpleScene {
+    static int colCount = 0;
     public static void main(String[] args) {
 
         // initialize world
@@ -57,6 +58,11 @@ public final class SimpleScene {
             // move camera based on input
             World.rotateCamera(lookCamera.y, -lookCamera.x, 0.0f);
             World.moveCameraRelativeToLooking(moveCamera.x, 0, moveCamera.y);
+
+
+            if (WorldObject.isColliding(lCube.position, 2, World.getCameraPos(), 2)) {
+                System.out.printf("col %d\n", colCount++);
+            }
 
             // update world
             World.pause(5);

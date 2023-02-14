@@ -288,6 +288,14 @@ public final class World {
         moveCameraRelativeToLooking(new Vector3(x, y, z));
     }
 
+    public static Vector3 getCameraPos() {
+        return cameraPos;
+    }
+
+    public static Vector3 getCameraRot() {
+        return cameraRot;
+    }
+
     // Pause
     public static void pause(long miliseconds) {
         context.pause(miliseconds);

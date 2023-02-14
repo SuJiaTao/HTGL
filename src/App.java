@@ -48,6 +48,11 @@ public class App {
             World.rotateCamera(lookCamera.y, -lookCamera.x, 0.0f);
             World.moveCameraRelativeToLooking(moveCamera.x, 0, moveCamera.y);
 
+            if (WorldObject.isColliding(human.position, 3,
+                    World.getCameraPos(), 3)) {
+                System.out.printf("collision!\t");
+            }
+
             World.pause(5);
             World.update();
         }

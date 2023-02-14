@@ -126,6 +126,20 @@ public abstract class WorldObject {
         this.scale.z *= z;
     }
 
+    public static boolean isColliding(Vector3 p1, float p1Rad,
+                                      Vector3 p2, float p2Rad) {
+        // generate and compare radii
+        float dist = p1.addCopy(p2.multiplyCopy(-1.0f)).magnitude();
+        return dist <= (p1Rad + p2Rad);
+    }
+    public boolean isColliding(float thisRadius, float otherRadius, WorldObject other) {
+        // on not exist, false
+        if (other == null)
+            return false;
+
+        return isColliding(this.position, thisRadius, other.position, otherRadius);
+    }
+
     // Update func
     protected abstract void update();
 }
