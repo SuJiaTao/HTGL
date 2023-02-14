@@ -8,6 +8,7 @@ package TGL;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import TGL.Internal.Matrix;
 import TGL.Vector.*;
 
 public abstract class WorldObject {
@@ -132,12 +133,47 @@ public abstract class WorldObject {
         float dist = p1.addCopy(p2.multiplyCopy(-1.0f)).magnitude();
         return dist <= (p1Rad + p2Rad);
     }
+
+    public static boolean isColliding(WorldObject o, float oRad,
+                                      Vector3 p, float pRad) {
+        Vector3 op = o.position;
+        while (o.parent != null) {
+            op = Matrix.transform(op,
+                    o.parent.position,
+                    o.parent.rotation,
+                    o.parent.scale);
+            o = o.parent;
+        }
+
+        return isColliding(op, oRad, p, pRad);
+    }
+
+    public static boolean isColliding(WorldObject o1, float o1Rad,
+                                      WorldObject o2, float o2Rad) {
+        Vector3 p1 = o1.position;
+        while (o1.parent != null) {
+            p1 = Matrix.transform(p1,
+                    o1.parent.position,
+                    o1.parent.rotation,
+                    o1.parent.scale);
+            o1 = o1.parent;
+        }
+        Vector3 p2 = o2.position;
+        while (o2.parent != null) {
+            p2 = Matrix.transform(p2,
+                    o2.parent.position,
+                    o2.parent.rotation,
+                    o2.parent.scale);
+            o2 = o2.parent;
+        }
+        return isColliding(p1, o1Rad, p2, o2Rad);
+    }
     public boolean isColliding(float thisRadius, float otherRadius, WorldObject other) {
         // on not exist, false
         if (other == null)
             return false;
 
-        return isColliding(this.position, thisRadius, other.position, otherRadius);
+        return isColliding(this, thisRadius, other, otherRadius);
     }
 
     // Update func

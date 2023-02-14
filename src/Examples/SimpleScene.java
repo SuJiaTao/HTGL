@@ -59,9 +59,8 @@ public final class SimpleScene {
             World.rotateCamera(lookCamera.y, -lookCamera.x, 0.0f);
             World.moveCameraRelativeToLooking(moveCamera.x, 0, moveCamera.y);
 
-
             if (WorldObject.isColliding(lCube.position, 2, World.getCameraPos(), 2)) {
-                System.out.printf("col %d\n", colCount++);
+                lCube.show = false;
             }
 
             // update world
