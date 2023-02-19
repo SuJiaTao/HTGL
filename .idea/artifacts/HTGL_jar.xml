@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HTGL:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/HTGL_jar</output-path>
+    <root id="archive" name="HTGL.jar">
+      <element id="module-output" name="HTGL" />
+      <element id="library" level="project" name="HTGL" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

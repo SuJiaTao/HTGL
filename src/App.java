@@ -40,13 +40,17 @@ public class App {
             //human.rotate(0, 0.3f, 0);
 
             // rotate empty
-            //empty.rotate(0, 0.6f, 0);
+            empty.rotate(0, 0.6f, 0);
 
             Vector2 lookCamera = Input.getArrowKeyDirection().multiplyCopy(3.5f);
             Vector2 moveCamera = Input.getWASDDirection().multiplyCopy(0.2f);
 
             World.rotateCamera(lookCamera.y, -lookCamera.x, 0.0f);
             World.moveCameraRelativeToLooking(moveCamera.x, 0, moveCamera.y);
+
+            if (WorldObject.isColliding(human, 1, World.getCameraPos(), 1)) {
+                System.out.print("touch! ");
+            }
 
             World.pause(5);
             World.update();
