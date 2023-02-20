@@ -10,41 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41ace9b7-1fc4-4f29-9ae4-fbe16b8ba8da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/HTGL_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/HTGL.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HTGL_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HTGL_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HTGL.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HTGL.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/RotatingCube.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/RotatingQuad.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/SimpleForest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/SimpleScene.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/SpiralA.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/Examples/TerrainTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Color3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Cube.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Input.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context$Fragment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Context.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/InputHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Matrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/Projection.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Internal/RenderBuffer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Light.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Car.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Human.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Prefabs/Tree.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Rand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/RenderBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/Vector/Vector3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/World.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HTGL/TGL/WorldObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/HTGL_jar/HTGL.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,17 +43,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Bailey/Java Projects/HTGL/HTGL",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Bailey/Java Projects/HTGL/HTGL&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
