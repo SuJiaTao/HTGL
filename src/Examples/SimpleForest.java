@@ -7,7 +7,6 @@ package Examples;
 import TGL.*;
 import TGL.Prefabs.*;
 import TGL.Vector.*;
-import java.util.Random;
 
 public final class SimpleForest {
     public static void main(String[] args) {

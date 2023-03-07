@@ -107,6 +107,14 @@ public abstract class WorldObject {
         position.z += z;
     }
 
+    public void moveRelativeToRotation(Vector3 vect) {
+        Vector3 moveDir = Matrix.rotate(vect,
+                new Vector3(this.rotation.x, 0, 0));
+        moveDir = Matrix.rotate(moveDir,
+                new Vector3(0, this.rotation.y, 0));
+        this.position.add(moveDir);
+    }
+
     public void rotate(Vector3 rotation) {
         this.rotation.add(rotation);
     }
