@@ -21,6 +21,7 @@ public class TrafficSim {
         Light sun = new Light(new Vector3(5, 100, 5), 500);
 
         Car carList[] = new Car[CARCOUNT];
+        float carSpeeds[] = new float[CARCOUNT];
         for (int i = 0; i < CARCOUNT; i++) {
             carList[i] = new Car(
                     randColor(),
@@ -33,23 +34,28 @@ public class TrafficSim {
                             Rand.nextFloat(0, 360),
                             0
                     ),
-                    Rand.nextFloat(0.75f, 1.25f)
+                    Rand.nextFloat(0.3f, 1.25f)
             );
+            carSpeeds[i] = Rand.nextFloat(0.5f, 1.25f);
         }
 
         World.setCameraPos(0, 10, 0);
 
         while (true) {
-            for (Car car : carList) {
+            for (int i = 0; i < CARCOUNT; i++) {
+                Car car = carList[i];
+                float carspeed = carSpeeds[i];
                 // clamp position
                 car.position.x %= SIMBOUNDS;
                 car.position.z %= SIMBOUNDS;
 
                 // update random rotation
-                car.rotation.y += Rand.nextFloat(-30.0f, 30.0f);
+                float turn = (float)(carspeed * 2) * (float)Math.sin(System.currentTimeMillis() * 0.2f);
+                if (i % 2 == 0) turn *= -1;
+                car.rotation.y += turn;
 
                 // move forward
-                car.moveRelativeToRotation(new Vector3(1, 0, 0));
+                car.moveRelativeToRotation(new Vector3(carspeed, 0, 0));
             }
 
             // get user input
